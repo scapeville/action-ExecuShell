@@ -27,6 +27,8 @@ else
 fi
 
 
+echo "::group::Making files executable"
+
 ## Check if any .sh files were found
 if [ -z "$sh_files" ]; then
     echo "WARNING: No shell '.sh' files found."
@@ -37,3 +39,5 @@ else
         echo "INFO: Made $file executable."
     done
 fi
+
+echo "::endgroup::"

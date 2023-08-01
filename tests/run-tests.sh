@@ -1,4 +1,6 @@
 set -e
 
 chmod +x $GITHUB_WORKSPACE/script.sh
-$GITHUB_WORKSPACE/script.sh $GITHUB_WORKSPACE/tests/test-dir false
+
+## Test I: Non-existing dir
+$GITHUB_WORKSPACE/script.sh $GITHUB_WORKSPACE/tests/foo-dir false

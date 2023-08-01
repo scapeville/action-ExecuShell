@@ -10,4 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: test.sh
+      - run: |
+          # chmod +x tests/run-tests.sh
+          tests/run-tests.sh

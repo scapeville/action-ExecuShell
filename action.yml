@@ -1,0 +1,36 @@
+name: ExecuShell
+description: "GitHub Action: Set all shell (`.sh`) files within a specific directory to be executable."
+author: Nicholas Valentinus
+branding:
+  icon: moon
+  color: gray-dark
+
+inputs:
+  dir:
+    description: Directory where all the shell files will be turned into executables
+    required: true
+  git-name:
+    description: Git name
+    required: true
+  git-email:
+    description: Git email
+    required: true
+  recursive:
+    description: If `true`, select shell files in 'dir' and its subdirectories. If `false`, only shell files in 'dir' alone.
+    default: false
+
+runs:
+  using: 'composite'
+  steps:      
+    - uses: actions/checkout@v3
+    - run: $GITHUB_ACTION_PATH/script.sh
+      env:
+        DIR: ${{ inputs.dir }}
+        GIT_NAME: ${{ inputs.git-name }}
+        GIT_EMAIL: ${{ inputs.git-email }}
+        RECURSIVE: ${{ inputs.recursive }}
+    - uses: scapeville/action-git-add-all-then-commit-then-push@v1
+      with:
+        name: ${{ inputs.git-name }}
+        email: ${{ inputs.git-email }}
+        msg: "Shell files in '${{ inputs.dir }}' dir made executable on $(date +'%Y %b %e, %l:%M %p')"

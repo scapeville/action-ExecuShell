@@ -22,10 +22,10 @@ jobs:
     steps:
       - uses: scapeville/action-ExecuShell@v1
         with:
-          dir: ./                # required
-          git-name: your name    # required
-          git-email: your@email  # required
-          recursive: false       # optional
+          dir: ./
+          git-name: your name
+          git-email: your@email
+          recursive: false
 ```
 
 ### In-workflow use

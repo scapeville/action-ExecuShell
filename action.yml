@@ -23,12 +23,9 @@ runs:
   using: 'composite'
   steps:      
     - uses: actions/checkout@v3
-    - run: $GITHUB_ACTION_PATH/script.sh
-      env:
-        DIR: ${{ inputs.dir }}
-        GIT_NAME: ${{ inputs.git-name }}
-        GIT_EMAIL: ${{ inputs.git-email }}
-        RECURSIVE: ${{ inputs.recursive }}
+    - run: |
+        # chmod +x $GITHUB_ACTION_PATH/script.sh
+        $GITHUB_ACTION_PATH/script.sh ${{ inputs.dir }} ${{ inputs.recursive }}
     - uses: scapeville/action-git-add-all-then-commit-then-push@v1
       with:
         name: ${{ inputs.git-name }}

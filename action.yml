@@ -7,7 +7,7 @@ branding:
 
 inputs:
   dir:
-    description: Directory where all the shell files will be turned into executables
+    description: Dir path (relative to repo root dir) where all the shell files will be turned into executables
     required: true
   git-name:
     description: Git name

@@ -31,7 +31,7 @@ jobs:
 
 ### In-workflow use
 
-> Note: Make sure to read `action.yml` first if you're considering this option.
+> Note: Make sure to know how the action works before going with this option.
 
 ```yml
 jobs:

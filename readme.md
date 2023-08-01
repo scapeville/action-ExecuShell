@@ -7,6 +7,8 @@ GitHub Action: Set all shell (`.sh`) files within a specific directory to be exe
 
 ### One time use
 
+Static:
+
 ```yml
 # .github/workflows/execushell.yml
 
@@ -26,6 +28,40 @@ jobs:
           git-name: your name
           git-email: your@email
           recursive: false
+```
+
+Dynamic:
+
+```yml
+# .github/workflows/execushell.yml
+
+name: ExecuShell
+
+on:
+  workflow_dispatch:  # Run manually from 'Actions' tab
+    inputs:
+      dir:
+        description: "Set directory path for executable shell files. Examples: `./`, `foo`, or `./foo`."
+        type: string
+        required: true
+      recursive:
+        description: "Include subdirectories: `true` for yes, `false` for no. Default: `false`."
+        type: boolean
+        required: false
+        default: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # For committing
+    steps:
+      - uses: scapeville/action-ExecuShell@v1
+        with:
+          dir: ${{ inputs.dir }}
+          git-name: your name
+          git-email: your@email
+          recursive: ${{ inputs.recursive }}
 ```
 
 ### In-workflow use

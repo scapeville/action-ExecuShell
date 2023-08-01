@@ -17,7 +17,7 @@ if [ ! -d "$DIR" ]; then
 fi
 
 ## Find all .sh files
-if [ $RECURSIVE ]; then
+if [ "$RECURSIVE" = "true" ]; then
     sh_files=$(find "$DIR" -type f -name "*.sh")
 else
     sh_files=$(find "$DIR" -maxdepth 1 -type f -name "*.sh")

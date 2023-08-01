@@ -1,6 +1,7 @@
-# set -e  # Don't use this
+# set -e  # Don't use this because there are lines in this script that would intentionally raise exit `<error code>` and will be caught.
 
-chmod +x $GITHUB_WORKSPACE/script.sh
+
+# chmod +x $GITHUB_WORKSPACE/script.sh
 
 ## Test I: Non-existing dir
 $GITHUB_WORKSPACE/script.sh $GITHUB_WORKSPACE/tests/foo-dir false
@@ -13,6 +14,8 @@ fi
 
 ## Test II: Recursive
 $GITHUB_WORKSPACE/script.sh $GITHUB_WORKSPACE/tests/test-dir true
+echo "INFO: Test II passed."
 
 ## Test II: Non-recursive
 $GITHUB_WORKSPACE/script.sh $GITHUB_WORKSPACE/tests/test-dir false
+echo "INFO: Test III passed."

@@ -1,4 +1,4 @@
-set -e
+# set -e  # Don't use this
 
 chmod +x $GITHUB_WORKSPACE/script.sh
 

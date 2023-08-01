@@ -11,5 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          # chmod +x tests/run-tests.sh
+          chmod +x tests/run-tests.sh
           tests/run-tests.sh

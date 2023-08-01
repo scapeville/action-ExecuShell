@@ -8,7 +8,7 @@ GitHub Action: Set all shell (`.sh`) files within a specific directory to be exe
 ### One time use
 
 ```yml
-# .github/workflow/execushell.yml
+# .github/workflows/execushell.yml
 
 name: ExecuShell
 
@@ -30,6 +30,8 @@ jobs:
 ```
 
 ### In-workflow use
+
+> Note: Make sure to read `action.yml` first if you're considering this option.
 
 ```yml
 jobs:

@@ -24,7 +24,7 @@ runs:
   steps:      
     - uses: actions/checkout@v3
     - run: |
-        # chmod +x $GITHUB_ACTION_PATH/script.sh
+        chmod +x $GITHUB_ACTION_PATH/script.sh
         $GITHUB_ACTION_PATH/script.sh ${{ inputs.dir }} ${{ inputs.recursive }}
       shell: bash
     - uses: scapeville/action-git-add-all-then-commit-then-push@v1

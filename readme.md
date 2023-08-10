@@ -9,7 +9,7 @@ GitHub Action: Set all shell (`.sh`) files within a specific directory to be exe
 
 Static:
 
-```yml
+```yaml
 # .github/workflows/execushell.yml
 
 name: ExecuShell

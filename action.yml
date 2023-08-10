@@ -25,8 +25,11 @@ runs:
     - uses: actions/checkout@v3
     - run: $GITHUB_ACTION_PATH/script.sh ${{ inputs.dir }} ${{ inputs.recursive }}
       shell: bash
+    - run: echo "time=$(date +'%Y %b %e, %l:%M %p')" >> $GITHUB_OUTPUT
+      shell: bash
+      id: time
     - uses: scapeville/action-git-add-all-then-commit-then-push@v1
       with:
         name: ${{ inputs.git-name }}
         email: ${{ inputs.git-email }}
-        msg: "Shell files in '${{ inputs.dir }}' dir made executable on $(date +'%Y %b %e, %l:%M %p')"
+        msg: "Shell files in '${{ inputs.dir }}' dir made executable on ${{ steps.time.outputs.time }}"
